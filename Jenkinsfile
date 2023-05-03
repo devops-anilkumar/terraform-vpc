@@ -1,6 +1,7 @@
 pipeline {
     agent any
     parameters { choice(name: 'ENV', choices: ['dev','prod'], description: 'chose the environment') }
+    parameters { choice(name: 'ACTION', choices: ['apply','destroy'], description: 'chose apply or destroy') }
     stages {
         stage('Terraform init') {
             steps {
